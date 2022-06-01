@@ -1,0 +1,15 @@
+int* runningSum(int* nums, int numsSize, int* returnSize)
+{
+    int *arr = (int *)malloc(sizeof(int) * numsSize);
+    int i = 0, sum = 0;
+
+    while(i < numsSize)
+    {
+        sum += nums[i];
+        arr[i] = sum;
+        i++;
+    }
+    
+    *returnSize = numsSize;
+    return arr;
+}
