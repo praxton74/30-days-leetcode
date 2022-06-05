@@ -1,0 +1,7 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        arr = [1,2]
+        for x in range(2,n):
+            joe = arr[x-1] + arr[x-2]                     #like Fibo
+            arr.append(joe)                     
+        return(arr[n-1])
