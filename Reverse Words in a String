@@ -1,0 +1,20 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s=s.strip()
+        st=""
+        a=""
+        print(s)
+        for i in range(len(s)):
+            if s[i]!=" ":
+                a+=s[i]
+            else:
+                if st=="":
+                    st=a
+                    a=""
+                elif a:
+                    st=a+" "+st
+                    a=""
+                else:
+                    pass
+           
+        return a+" "+st if st else a
