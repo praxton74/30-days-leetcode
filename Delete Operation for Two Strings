@@ -1,0 +1,23 @@
+class Solution {
+public:
+    
+    int dp[505][505];
+    
+    int LCS(string w1, string w2, int i, int j){
+        if(i == size(w1) || j == size(w2)) return 0;
+     
+        if(dp[i][j] != -1) return dp[i][j];
+        
+        if(w1[i] == w2[j])
+            return dp[i][j] = 1+LCS(w1,w2,i+1,j+1);
+        else 
+            return dp[i][j] = max(LCS(w1,w2,i+1,j),LCS(w1,w2,i,j+1));
+    }
+    
+    
+    int minDistance(string word1, string word2) {
+        memset(dp,-1,sizeof(dp));
+        int common = LCS(word1, word2, 0, 0);
+        return word1.size()-common + word2.size()-common;
+    }
+};
